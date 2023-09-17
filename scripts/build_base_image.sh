@@ -29,7 +29,7 @@ if [[ -f "${ROOT}/.isaac_ros_common-config" ]]; then
     # Prepend configured docker search dirs
     if [ ${#CONFIG_DOCKER_SEARCH_DIRS[@]} -gt 0 ]; then
         for (( i=${#CONFIG_DOCKER_SEARCH_DIRS[@]}-1 ; i>=0 ; i-- )); do
-            if [[ "${CONFIG_DOCKER_SEARCH_DIRS[i]}" != '/*'* ]]; then
+            if [[ "${CONFIG_DOCKER_SEARCH_DIRS[i]}" != '/'* ]]; then
                 CONFIG_DOCKER_SEARCH_DIRS[$i]="${ROOT}/${CONFIG_DOCKER_SEARCH_DIRS[i]}"
             fi
         done
@@ -204,6 +204,7 @@ for (( i=${#DOCKERFILES[@]}-1 ; i>=0 ; i-- )); do
 
     print_warning "Building ${DOCKERFILE} as image: ${IMAGE_NAME} with base: ${BASE_IMAGE_NAME}"
 
+    DOCKER_BUILDKIT=0
     DOCKER_BUILDKIT=${DOCKER_BUILDKIT} docker build -f ${DOCKERFILE} \
      --network host \
      -t ${IMAGE_NAME} \
