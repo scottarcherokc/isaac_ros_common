@@ -17,3 +17,6 @@ echo "restarting udev.. why tho"
 sudo service udev restart
 
 echo "Docker container is up!"
+
+# Waits forever. This keeps the docker container up and running.
+tail -f
