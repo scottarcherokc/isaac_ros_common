@@ -12,11 +12,8 @@
 echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> ~/.bashrc
 source /opt/ros/${ROS_DISTRO}/setup.bash
 
-# sudo apt-get update
-# rosdep update
-
 # Restart udev daemon
 echo "restarting udev.. why tho"
 sudo service udev restart
 
-$@
+echo "Docker container is up!"
