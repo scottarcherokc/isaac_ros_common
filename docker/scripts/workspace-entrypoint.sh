@@ -19,4 +19,7 @@ source /opt/ros/${ROS_DISTRO}/setup.bash
 echo "restarting udev.. why tho"
 sudo service udev restart
 
+# Source setup so we can ros2 immediately
+source install/setup.bash
+
 $@
